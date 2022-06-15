@@ -56,3 +56,24 @@ System.out.println(timeMeter); // 1 msec
 // .. код, для которого измеряется продолжительность выполнения
 System.out.println(timeMeter); // 2 msec
 ```
+
+### NameUtils (методы по работе с именами и названиями)
+**String getFullName(String lastName, String firstName, String middleName)** - метод преобразует фамилию, имя и отчество в ФИО
+
+Примеры:
+```java
+NameUtils.getFullName("Сериков", "Серик", "Серикович") // Сериков Серик Серикович
+NameUtils.getFullName("Сериков", "Серик", null) // Сериков Серик
+NameUtils.getFullName("Сериков", null, null) // Сериков
+NameUtils.getFullName(null, "Серик", "Серикович") // Серик Серикович
+```
+
+**String getShortName(String lastName, String firstName, String middleName)** - метод преобразует фамилию, имя и отчество в формат: Фамилия + инициалы (И.О.)
+
+Примеры:
+```java
+NameUtils.getShortName("Сериков", "Танат", "Еркинович") // Сериков Т.Е.
+NameUtils.getShortName("Сериков", "Танат", "\n") // Сериков Т.
+NameUtils.getShortName("Сериков", "", "") // Сериков
+NameUtils.getShortName("", "Танат", "Еркинович") // Т.Е.
+```
