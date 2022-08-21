@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Именнованные секундомеры для замера времени работы блоков кода с именованными секундомером
  */
-public class NamedTimeMeter {
+public class NamedTimeMeter extends AbstractTimeMeter{
     private Map<String, Long> startMap; // время запуска секундомера (key - наименование секундомера, value - время запуска в миллисекундах)
     private Map<String, Long> stopMap;  // время остановки секундомера (key - наименование секундомера, value - время остановки в миллисекундах)
 
@@ -60,15 +60,7 @@ public class NamedTimeMeter {
             throw new RuntimeException("Timer " + timerName + " is not started");
         }
         Long stop = stopMap.get(timerName);
-        return (stop == null ? now() : stop) - start;
-    }
-
-    /**
-     * Текущее время в миллисекундах
-     * @return
-     */
-    private long now(){
-        return System.currentTimeMillis();
+        return nanoToMillis((stop == null ? now() : stop) - start);
     }
 
     /**

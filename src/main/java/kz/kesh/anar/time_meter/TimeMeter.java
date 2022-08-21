@@ -3,7 +3,7 @@ package kz.kesh.anar.time_meter;
 /**
  * Класс для замера времени работы блока кода
  */
-public class TimeMeter {
+public class TimeMeter extends AbstractTimeMeter{
     private final long start;
     private long stop;
 
@@ -26,15 +26,7 @@ public class TimeMeter {
      * @return кол-во миллисекунд
      */
     public long getDuration(){
-        return (stop == 0 ? now() : stop) - start;
-    }
-
-    /**
-     * Получить текущее время в миллисекундах
-     * @return текущее время в миллисекундах
-     */
-    private long now(){
-        return System.currentTimeMillis();
+        return nanoToMillis((stop == 0 ? now() : stop) - start);
     }
 
     /**
