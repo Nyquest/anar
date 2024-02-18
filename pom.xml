@@ -14,7 +14,7 @@
 
     <groupId>kz.kesh</groupId>
     <artifactId>anar</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
 
     <name>Static utility methods</name>
     <description>Static utility methods</description>
